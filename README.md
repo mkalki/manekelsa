@@ -112,6 +112,7 @@ Android automatically switches language based on device language settings.
 - AI worker recommendations
 - Worker booking system
 - Dark mode improvements
+- Advanced realtime GPS tracking improvements
 
 ---
 

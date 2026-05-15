@@ -8,7 +8,6 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.google.firebase.firestore.FirebaseFirestore
-import com.example.manekelsa.location.getCurrentLocation
 
 @Composable
 fun AddWorkerScreen(
@@ -16,7 +15,6 @@ fun AddWorkerScreen(
 ) {
 
     val db = FirebaseFirestore.getInstance()
-
 
     var name by remember { mutableStateOf("") }
     var skill by remember { mutableStateOf("") }
@@ -26,16 +24,6 @@ fun AddWorkerScreen(
     var experience by remember { mutableStateOf("") }
     var rating by remember { mutableStateOf("") }
     var imageUrl by remember { mutableStateOf("") }
-    var latitude by remember { mutableStateOf(0.0) }
-    var longitude by remember { mutableStateOf(0.0) }
-    LaunchedEffect(Unit) {
-
-        getCurrentLocation(navController.context) { lat, lon ->
-
-            latitude = lat
-            longitude = lon
-        }
-    }
 
     var availableToday by remember {
         mutableStateOf(false)
@@ -171,8 +159,20 @@ fun AddWorkerScreen(
                     rating = rating.toDoubleOrNull() ?: 0.0,
                     profileImageUrl = imageUrl,
                     availableToday = availableToday,
-                    latitude = 12.9716,
-                    longitude = 77.5946
+
+                    latitude = when(city.lowercase()) {
+                        "bengaluru" -> 12.9716
+                        "mysuru" -> 12.2958
+                        "mangalore" -> 12.9141
+                        else -> 12.9716
+                    },
+
+                    longitude = when(city.lowercase()) {
+                        "bengaluru" -> 77.5946
+                        "mysuru" -> 76.6394
+                        "mangalore" -> 74.8560
+                        else -> 77.5946
+                    }
                 )
 
                 db.collection("workers")
