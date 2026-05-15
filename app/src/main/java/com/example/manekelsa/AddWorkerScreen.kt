@@ -1,12 +1,14 @@
 package com.example.manekelsa
 
 import androidx.compose.foundation.layout.*
-import androidx.navigation.NavController
 import androidx.compose.material3.*
 import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavController
 import com.google.firebase.firestore.FirebaseFirestore
+import com.example.manekelsa.location.getCurrentLocation
 
 @Composable
 fun AddWorkerScreen(
@@ -14,6 +16,7 @@ fun AddWorkerScreen(
 ) {
 
     val db = FirebaseFirestore.getInstance()
+
 
     var name by remember { mutableStateOf("") }
     var skill by remember { mutableStateOf("") }
@@ -23,74 +26,119 @@ fun AddWorkerScreen(
     var experience by remember { mutableStateOf("") }
     var rating by remember { mutableStateOf("") }
     var imageUrl by remember { mutableStateOf("") }
+    var latitude by remember { mutableStateOf(0.0) }
+    var longitude by remember { mutableStateOf(0.0) }
+    LaunchedEffect(Unit) {
 
-    var availableToday by remember { mutableStateOf(false) }
+        getCurrentLocation(navController.context) { lat, lon ->
+
+            latitude = lat
+            longitude = lon
+        }
+    }
+
+    var availableToday by remember {
+        mutableStateOf(false)
+    }
 
     Column(
         modifier = Modifier
             .fillMaxSize()
             .padding(16.dp),
+
         verticalArrangement = Arrangement.spacedBy(12.dp)
     ) {
 
         Text(
-            text = "Add Worker",
+            text = stringResource(R.string.add_worker),
             style = MaterialTheme.typography.headlineMedium
         )
 
         OutlinedTextField(
             value = name,
-            onValueChange = { name = it },
-            label = { Text("Name") },
+            onValueChange = {
+                name = it
+            },
+            label = {
+                Text(stringResource(R.string.name))
+            },
             modifier = Modifier.fillMaxWidth()
         )
 
         OutlinedTextField(
             value = skill,
-            onValueChange = { skill = it },
-            label = { Text("Skill") },
+            onValueChange = {
+                skill = it
+            },
+            label = {
+                Text(stringResource(R.string.skill))
+            },
             modifier = Modifier.fillMaxWidth()
         )
 
         OutlinedTextField(
             value = phone,
-            onValueChange = { phone = it },
-            label = { Text("Phone Number") },
+            onValueChange = {
+                phone = it
+            },
+            label = {
+                Text(stringResource(R.string.phone_number))
+            },
             modifier = Modifier.fillMaxWidth()
         )
 
         OutlinedTextField(
             value = rate,
-            onValueChange = { rate = it },
-            label = { Text("Daily Rate") },
+            onValueChange = {
+                rate = it
+            },
+            label = {
+                Text(stringResource(R.string.daily_rate))
+            },
             modifier = Modifier.fillMaxWidth()
         )
 
         OutlinedTextField(
             value = city,
-            onValueChange = { city = it },
-            label = { Text("City") },
+            onValueChange = {
+                city = it
+            },
+            label = {
+                Text(stringResource(R.string.city))
+            },
             modifier = Modifier.fillMaxWidth()
         )
 
         OutlinedTextField(
             value = experience,
-            onValueChange = { experience = it },
-            label = { Text("Experience") },
+            onValueChange = {
+                experience = it
+            },
+            label = {
+                Text(stringResource(R.string.experience))
+            },
             modifier = Modifier.fillMaxWidth()
         )
 
         OutlinedTextField(
             value = rating,
-            onValueChange = { rating = it },
-            label = { Text("Rating") },
+            onValueChange = {
+                rating = it
+            },
+            label = {
+                Text(stringResource(R.string.rating))
+            },
             modifier = Modifier.fillMaxWidth()
         )
 
         OutlinedTextField(
             value = imageUrl,
-            onValueChange = { imageUrl = it },
-            label = { Text("Profile Image URL") },
+            onValueChange = {
+                imageUrl = it
+            },
+            label = {
+                Text(stringResource(R.string.profile_image_url))
+            },
             modifier = Modifier.fillMaxWidth()
         )
 
@@ -105,7 +153,9 @@ fun AddWorkerScreen(
                 }
             )
 
-            Text(text = "Available Today")
+            Text(
+                text = stringResource(R.string.available_today)
+            )
         }
 
         Button(
@@ -127,6 +177,7 @@ fun AddWorkerScreen(
 
                 db.collection("workers")
                     .add(worker)
+
                 navController.popBackStack()
 
                 name = ""
@@ -139,10 +190,13 @@ fun AddWorkerScreen(
                 imageUrl = ""
                 availableToday = false
             },
+
             modifier = Modifier.fillMaxWidth()
         ) {
 
-            Text(text = "Save Worker")
+            Text(
+                text = stringResource(R.string.add_worker)
+            )
         }
     }
 }

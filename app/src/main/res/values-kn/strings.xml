@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">ಮನೆಕೆಲ್ಸ</string>
+
+    <string name="add_worker">ಕೆಲಸಗಾರರನ್ನು ಸೇರಿಸಿ</string>
+
+    <string name="name">ಹೆಸರು</string>
+
+    <string name="city">ನಗರ</string>
+
+    <string name="daily_rate">ದಿನದ ವೇತನ</string>
+
+    <string name="call_worker">ಕರೆ ಮಾಡಿ</string>
+
+    <string name="search_workers">ಕೆಲಸಗಾರರನ್ನು ಹುಡುಕಿ</string>
+
+    <string name="skill">ಕೌಶಲ್ಯ</string>
+
+    <string name="phone_number">ದೂರವಾಣಿ ಸಂಖ್ಯೆ</string>
+
+    <string name="experience">ಅನುಭವ</string>
+
+    <string name="rating">ಮೌಲ್ಯಮಾಪನ</string>
+
+    <string name="profile_image_url">ಪ್ರೊಫೈಲ್ ಚಿತ್ರ URL</string>
+
+    <string name="available_today">ಇಂದು ಲಭ್ಯ</string>
+
+    <string name="save_worker">ಉಳಿಸಿ</string>
+
+    <string name="find_workers">ಕೆಲಸಗಾರರನ್ನು ಹುಡುಕಿ</string>
+
+    <string name="home_title">ಮನೆಕೆಲ್ಸ</string>
+
+</resources>

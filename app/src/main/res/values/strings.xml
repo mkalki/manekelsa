@@ -1,3 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">manekelsa</string>
+
+    <string name="app_name">ManeKelsa</string>
+
+    <string name="add_worker">Add Worker</string>
+
+    <string name="name">Name</string>
+
+    <string name="city">City</string>
+
+    <string name="daily_rate">Daily Rate</string>
+
+    <string name="call_worker">Call Worker</string>
+
+    <string name="search_workers">Search Workers</string>
+
+    <string name="skill">Skill</string>
+
+    <string name="phone_number">Phone Number</string>
+
+    <string name="experience">Experience</string>
+
+    <string name="rating">Rating</string>
+
+    <string name="profile_image_url">Profile Image URL</string>
+
+    <string name="available_today">Available Today</string>
+
+    <string name="save_worker">Save Worker</string>
+    <string name="find_workers">Find Workers</string>
+
+    <string name="home_title">ManeKelsa</string>
+    <string name="cleaning">Cleaning</string>
+    <string name="day">day</string>
+    <string name="bengaluru">Bengaluru</string>
+
 </resources>
