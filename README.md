@@ -19,7 +19,7 @@ The app supports Kannada language localization and uses Firebase Firestore for r
 - Worker profile images
 - Direct call functionality
 - Modern Jetpack Compose UI
-- GPS location support
+- Basic location support for nearby worker filtering
 - Material 3 design
 
 ---
